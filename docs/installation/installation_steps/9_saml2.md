@@ -93,7 +93,7 @@ Two well known IdP implementations that we've interacted with are:
     ```
 
 ## Service Providers (SP)
-There are multiple implementations of the Service Provider role in the SAML2 protocol, but as we have only ever used Shibboleth, we will refer to that specifically in the following documentation.
+There are multiple implementations of the Service Provider role in the SAML2 protocol, but as we have only used Shibboleth, we will refer to that specifically in the following documentation.
 
 - <a href="https://shibboleth.net/downloads/service-provider/latest" target="_blank">Shibboleth SP Installation Media</a>
 - <a href="https://wiki.shibboleth.net/confluence/display/SP3/Installation" target="_blank">Shibboleth SP Installation Documentation</a>
@@ -109,7 +109,7 @@ There are two routes that ***must*** be protected by the SAML2 Service Provider 
 !!! warning
     If you are running Leaf's React application at the root of an IIS Server (e.g. `leaf.uwmedicine.org` instead of `leaf.uwmedicine.org/leaf`), **make sure to leave** `leaf.uwmedicine.org/leafApi` **unprotected also**.
 
-    Why? Protecting the **root** of the React client app (e.g., `leaf.uwmedicine.org`) in Shibboleth will automatically make all sub-paths protected. If exceptions are only made for requests with the `/api` path (except for `/api/config` and `/api/user/`, noted above), once the IIS URL Rewrite rule changes the request to the `/leafApi` path, Shibboleth will intercept this request and not allow the React client app to call the API, **thus will breaking the application**
+    Why? Protecting the **root** of the React client app (e.g., `leaf.uwmedicine.org`) in Shibboleth will automatically make all sub-paths protected. If exceptions are only made for requests with the `/api` path (except for `/api/config` and `/api/user/`, noted above), once the IIS URL Rewrite rule changes the request to the `/leafApi` path, Shibboleth will intercept this request and not allow the React client app to call the API, **thus breaking the application**.
 
 ## Web Servers
 
@@ -128,7 +128,7 @@ Service Provider considerations for each component:
     </InProcess>
     ```
 === "ADFS"
-    Shibboleth Service Provider 3 can be configured to work with ADFS. However, it requires a couple extensions bundled with the installation. The extensions are loaded into the `OutOfProcess` and `InProcess` elements via the `Extensions` element. A prototypical ADFS configuration looks like:
+    Shibboleth Service Provider 3 can be configured to work with an ADFS Identity Provider (IdP). However, it requires a couple extensions bundled with the installation. The extensions are loaded into the `OutOfProcess` and `InProcess` elements via the `Extensions` element. A prototypical ADFS configuration looks like:
     ```xml
     <OutOfProcess tranLogFormat="%u|%s|%IDP|%i|%ac|%t|%attr|%n|%b|%E|%S|%SS|%L|%UA|%a">
         <Extensions>

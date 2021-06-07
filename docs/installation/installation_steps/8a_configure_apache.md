@@ -71,7 +71,7 @@ The status of the Leaf API can be checked with this command:
     systemctl status leaf_api.service
     ```
 
-1. **From the app server**, copy the `/build` directory made in [Step 5 - Build the Leaf UI](../5_compile_client) to `/data/www/` **on the web server**. This will copy the Leaf Client production files over for Apache to host.
+1. **From the app server**, copy the contents of the `/build` directory made in [Step 5 - Build the Leaf UI](../5_compile_client) to `/data/www/` **on the web server**. This will copy the Leaf Client production files over for Apache to host.
 
 2. **On the web server**, define an `httpd.conf` file to host a single node in a Leaf deployment. 
 
@@ -82,6 +82,7 @@ The status of the Leaf API can be checked with this command:
 
 **`httpd.conf`**
 
+# todo: this needs more explanaition, and a reference to documentation, e.g., https://httpd.apache.org/docs/2.4/mod/mod_ssl.html
 ```xml
 <VirtualHost *:443>
 
